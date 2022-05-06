@@ -9,4 +9,4 @@ server.use(cors());
 server.use(express.json());
 server.use(routes);
 
-server.listen(3001, () => console.log('HTTP server is running!'));
+server.listen(process.env.PORT || 3001, () => console.log('HTTP server is running!'));
