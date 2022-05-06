@@ -20,7 +20,7 @@ export class SubmitFeedbackUseCase {
       throw new Error('Type or Comment is required.');
     }
 
-    if (screenshort && !screenshort.startsWith('data:image/png;64')) {
+    if (screenshort && !screenshort.startsWith('data:image/png;base64')) {
       throw new Error('Invalid screenshort format.');
     }
     
@@ -36,6 +36,7 @@ export class SubmitFeedbackUseCase {
         `<div style="font-family: sans-serif; font-size: 16px; color: #111;">`,
         `<p>Tipo do feedback ${type}</p>`,
         `<p>Comentário: ${comment}</p>`,
+        screenshort ? `<img src="${screenshort}"/>` : ``,
         `</div>`,
       ].join('\n')
     })
